@@ -1,5 +1,5 @@
 from typing import List
-from pydantic import Field, PostgresDsn, field_validator
+from pydantic import Field, PostgresDsn, field_validator, AnyUrl
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
 
@@ -14,9 +14,9 @@ class Settings(BaseSettings):
     )
     
     # Database
-    database_url: PostgresDsn = Field(
-        default="postgresql+asyncpg://user:password@localhost:5432/dbname"
-    )
+    sqlite_url: str | None = None
+    postgres_url: PostgresDsn | None = None
+    mongo_url: AnyUrl | None = None
     
     # Application
     app_name: str = Field(default="FastAPI CRUD Service")

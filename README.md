@@ -7,4 +7,6 @@ source .venv/bin/activate
 
 uv add fastapi uvicorn pydantic pydantic_settings
 
-uv run python -m test.db_test
+uv sync
+
+uv run python -m test_postgres

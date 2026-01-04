@@ -3,7 +3,7 @@ from app.core.config import settings
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy import text
 
-DATABASE_URL = str(settings.database_url)
+DATABASE_URL = str(settings.postgres_url)
 
 async def test_db():
     engine = create_async_engine(DATABASE_URL, echo=True)
