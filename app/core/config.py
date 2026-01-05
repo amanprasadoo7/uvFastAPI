@@ -14,9 +14,7 @@ class Settings(BaseSettings):
     )
     
     # Database
-    sqlite_url: str | None = None
-    postgres_url: PostgresDsn | None = None
-    mongo_url: AnyUrl | None = None
+    database_url: str
     
     # Application
     app_name: str = Field(default="FastAPI CRUD Service")
